@@ -65,3 +65,41 @@ let num1 = '10';
 num1 = Number(num1)
 console.log(typeof num1);
 console.log(typeof String(num1));
+//****************************Exersices for day 2********************/
+let challenge  = '30 Days of JavaScript';
+console.log(challenge.toLowerCase());
+let firstWord = challenge.substring(0,3);
+let firstPart = challenge.indexOf('Days');
+let secondPart = challenge.indexOf('JavaScript');
+let phrase = challenge.substr(firstPart, (challenge.length-firstPart));
+console.log(phrase);
+let arr = challenge.split(' ');
+let python = challenge.replace('JavaScript', 'Python');
+console.log(challenge.startsWith('3'));
+console.log(challenge.repeat(2));
+//level 2
+let quote = 'The quote \'There is no exercise better for the heart than reaching down and lifting people up.\' by John Holmes teaches us to help one another.'
+console.log((typeof parseInt('10'))===(typeof 10));
+console.log((Math.round(parseFloat('9.82')))===(10));
+console.log(('python'.includes('on')) && ('jargon'.includes('on')));
+let randomNum = Math.floor(Math.random() * 256);
+let sequ = [[0,0,0,0,0],[0,0,0,0,0],[0,0,0,0,0],[0,0,0,0,0],[0,0,0,0,0]];
+
+//column major order so loop thru columns first
+for(let i=0; i<5; i++){
+    for(let j=0; j<5; j++){
+        if(i==0 || i==2){
+            sequ[j][i] = j+1;
+        }
+        else if(i==1){
+            sequ[j][i] = 1;}
+        else{
+            sequ[j][i] = Math.pow(sequ[j][i-1],2);
+        }
+    }
+}
+let phrase1 = 'You cant end with because because because';
+let firstb = phrase1.indexOf('because');
+console.log(phrase1.substr(firstb,7));
+let lastb = phrase1.lastIndexOf('becasue')
+console.log(phrase1.substring(firstb, lastb+1));
