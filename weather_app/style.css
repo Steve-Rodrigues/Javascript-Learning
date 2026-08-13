@@ -1,0 +1,90 @@
+header{
+    display: flex;
+    justify-content: space-between;
+    margin: 20px;
+    font: 530 18px sans-serif;
+    color: white;
+}
+body{
+    background: radial-gradient(circle at top left, #3d4570 0%, #2c3256 25%, #1e2138 55%, #161826 100%);
+}
+div.right-header{
+    display: flex;
+    gap: 15px;
+    padding-right: 50px;
+}
+input{
+    width: 150px;
+    padding: 3px;
+    font: 550 16px sans-serif;
+    color: gray;
+    background-color: #161826;
+    transition: all 0.3s ease-out;
+}
+input:hover{
+    box-shadow: 0 0 10px rgb(184, 6, 184);
+    transform: translateY(-6px);
+}
+div.weather-choice{
+    display: flex;
+}
+span{
+    border: 1px solid black;
+    width: 10px;
+    height: 10px;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    color: gray;
+    font: 560 15px sans-serif;
+    transition: all 0.2s ease-out;
+}
+span:hover{
+    border: 1px solid rgb(229, 11, 221);
+    cursor: pointer;
+}
+
+div.weather-card{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: flex-start;
+    padding: 50px;
+}
+div.date-time{
+    font: 530 18px sans-serif;
+    color: gray;
+}
+div.temp{
+    display: flex;
+    gap: 10px;    
+    font: 650 85px sans-serif;
+    align-items: center;
+    color: white;
+}
+h4.day-outlook{
+    width: 280px;
+    padding-left: 15px;
+    height: 20px;
+    display: flex;
+    justify-content: flex-start;
+    color: white;
+}
+div.divider{
+    height: 1px;
+    width: 35%;
+    background: linear-gradient(to right, rgb(210, 8, 233),transparent)
+}
+div.stats{
+    width: 35%;
+    display: flex;
+    justify-content: space-around;
+}
+.feels-like p, .wind p, .humid p{
+    color: gray;
+    font: 510 16px sans-serif;
+}
+.feels-like h4, .wind h4, .humid h4{
+    font: 550 18px sans-serif;
+    color: white;
+}
