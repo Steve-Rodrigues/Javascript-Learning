@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Weather App</title>
     <link rel="stylesheet" href="./style.css">
+    <script src="./app.js" defer></script>
 </head>
 <body>
     <header>
@@ -14,10 +15,26 @@
         <div class="weather-choice"><span class="far">F</span><span class="cel">C</span></div>
         </div>
     </header>
-    <div class="weather-card">
+    <div class="error-page">
+        <h1>Couldn't load the forecast</h1>
+        <p class="custom">We couldn't reach the weather service for ...</p>
+        <p>Check your connection and try again.</p>
+        <button class="retry">New Search</button>
+    </div>
+
+    <div class="load-phase">
+        <div class="initial-card">
+            <h1>Check the sky, <br>anywhere.</h1>
+            <p>Search a city and we pull the weather data with all the info you need.</p>
+        <div class="search-bar"><input type="text" placeholder="Search a city and state"> <button>Search</button></div>
+        </div>
+
+    </div>
+
+    <div class="weather-card" >
         <div class="date-time">Monday, August 13 • 5:57 PM</div>
         <div class="temp">
-            72° <div class="emoji">☀️</div>
+            <div class="temp-val">72°</div> <div class="emoji">☀️</div>
         </div>
         <h4 class="day-outlook">Partly Cloudy</h4>
         <div class="divider"></div>

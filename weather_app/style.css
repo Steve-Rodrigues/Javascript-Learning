@@ -5,6 +5,88 @@ header{
     font: 530 18px sans-serif;
     color: white;
 }
+div.error-page.active{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 10px;
+    padding-left: 40px;
+}
+.error-page h1{
+    font: 550 40px sans-serif;
+    color: white;
+    margin-bottom:10px;
+}
+.error-page p{
+    font: 550 18px monospace;
+    color: gray;
+    margin:0;
+}
+.error-page button{
+    color: gray;
+    background-color: rgba(156, 146, 146,0.3);
+    border-radius: 15px;
+    width: 20%;
+    padding: 5px;
+    border: 1px solid rgb(219, 9, 219);
+    transition: all 0.2s ease-out;
+    margin: 0 auto;
+}
+.error-page button:hover{
+    box-shadow: 0 0 12px rgb(181, 6, 181);
+    transform: scale(1.2);
+}
+
+div.error-page{
+    display: none;
+}
+
+div.load-phase{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding-left: 40px;
+}
+div.load-phase h1{
+    font: 550 60px sans-serif;
+    color: white;
+}
+div.load-phase p{
+    font: 500 16px sans-serif;
+    color: white;
+}
+div.search-bar{
+    border: 1px solid rgb(196, 185, 185);
+    width: 70%;
+    padding: 12px;
+    border-radius: 25px;
+    background-color: rgba(128, 128, 128,0.3);
+    color: gray;
+    display: flex;
+    justify-content: space-around;
+}
+div.search-bar input{
+    background-color: rgba(201, 200, 200,0.1);
+    width: 60%;
+    border: 0px solid white;
+    font: 550 16px sans-serif;
+}
+.search-bar button{
+    border-radius: 15px;
+    padding: 4px;
+    width: 25%;
+    border: 1px solid rgb(212, 14, 212);
+    background-color: rgba(201, 200, 200,0.1);
+    transition: all 0.2s ease-out;
+    color: gray;
+}
+.search-bar button:hover{
+    box-shadow: 0 0 12px rgb(219, 7, 219);
+    cursor: pointer;
+}
+
+
 body{
     background: radial-gradient(circle at top left, #3d4570 0%, #2c3256 25%, #1e2138 55%, #161826 100%);
 }
@@ -13,7 +95,7 @@ div.right-header{
     gap: 15px;
     padding-right: 50px;
 }
-input{
+input.location-search{
     width: 150px;
     padding: 3px;
     font: 550 16px sans-serif;
@@ -21,7 +103,7 @@ input{
     background-color: #161826;
     transition: all 0.3s ease-out;
 }
-input:hover{
+input.location-search:hover{
     box-shadow: 0 0 10px rgb(184, 6, 184);
     transform: translateY(-6px);
 }
@@ -44,13 +126,23 @@ span:hover{
     cursor: pointer;
 }
 
-div.weather-card{
+div.weather-card.active{
     display: flex;
     flex-direction: column;
     gap: 10px;
     align-items: flex-start;
     padding: 50px;
 }
+div.weather-card{
+    display: none;
+}
+div.load-phase{
+    display: none;
+}
+div.load-phase.active{
+    display: flex;
+}
+
 div.date-time{
     font: 530 18px sans-serif;
     color: gray;
@@ -61,6 +153,10 @@ div.temp{
     font: 650 85px sans-serif;
     align-items: center;
     color: white;
+}
+div.temp div.temp-val{
+    color: white;
+    font: 650 85px sans-serif;
 }
 h4.day-outlook{
     width: 280px;
@@ -76,9 +172,10 @@ div.divider{
     background: linear-gradient(to right, rgb(210, 8, 233),transparent)
 }
 div.stats{
-    width: 35%;
+    width: 45%;
     display: flex;
     justify-content: space-around;
+    gap: 15px;
 }
 .feels-like p, .wind p, .humid p{
     color: gray;
