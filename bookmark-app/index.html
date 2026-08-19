@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Learning Resource Tracker</title>
+  <link rel="stylesheet" href="style.css" />
+  <script type="module" src="app.js" defer></script>
+</head>
+<body>
+
+  <div class="page">
+
+    <header class="page-header">
+      <h1>Learning Resource Tracker</h1>
+      <p class="subtitle">Save articles, docs, and videos while you're learning to code.</p>
+    </header>
+
+    <!-- ADD FORM -->
+    <form id="add-form" class="add-form">
+      <div class="form-row">
+        <input
+          type="text"
+          id="title-input"
+          name="title"
+          placeholder="Resource title (e.g. MDN Async Guide)"
+          class="title"
+          required
+        />
+      </div>
+      <div class="form-row">
+        <input
+          type="url"
+          id="url-input"
+          name="url"
+          placeholder="https://..."
+          class="url"
+          required
+        />
+      </div>
+      <div class="form-row">
+        <input
+          type="text"
+          id="topic-input"
+          name="topic"
+          placeholder="Topic (e.g. React, Async/Promises, Algorithms)"
+          class="topic"
+          list="topic-suggestions"
+        />
+        <datalist id="topic-suggestions">
+          <option value="JS Fundamentals"></option>
+          <option value="Async/Promises"></option>
+          <option value="React"></option>
+          <option value="Algorithms"></option>
+          <option value="APIs"></option>
+        </datalist>
+      </div>
+      <button type="submit" class="btn-primary">Add Resource</button>
+    </form>
+
+    <!-- STATUS / ERROR MESSAGE -->
+    <p id="status-message" class="status-message" hidden></p>
+
+    <!-- TOPIC FILTER (populate this with buttons/options via JS) -->
+    <div id="topic-filter" class="topic-filter">
+      <!-- example of what a filter button should look like once JS renders it:
+      <button class="filter-btn active" data-topic="all">All</button>
+      <button class="filter-btn" data-topic="React">React</button>
+      -->
+    </div>
+
+    <!-- RESOURCE LIST (populate this with cards via JS) -->
+    <div id="resource-list" class="resource-list">
+      <!-- example of what one resource card should look like once JS renders it:
+
+      <div class="resource-card" data-id="1">
+        <div class="resource-info">
+          <a href="https://developer.mozilla.org" target="_blank" class="resource-title">MDN Async Guide</a>
+          <span class="resource-topic">Async/Promises</span>
+        </div>
+        <div class="resource-actions">
+          <select class="topic-select">
+            <option value="Async/Promises" selected>Async/Promises</option>
+            <option value="React">React</option>
+          </select>
+          <button class="delete-btn">Delete</button>
+        </div>
+      </div>
+
+      -->
+    </div>
+
+    <p id="empty-message" class="empty-message" hidden>
+      No resources yet — add your first one above.
+    </p>
+
+  </div>
+
+</body>
+</html>
