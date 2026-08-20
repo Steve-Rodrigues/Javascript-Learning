@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Charts Display</title>
+</head>
+<body>
+    <div class="chart-container">
+        <canvas id="myChart"></canvas>
+    </div>
+    <div class="chart2">
+        <canvas id="chartTwo"></canvas>
+    </div>
+    <div class="chart3">
+        <canvas id="line"></canvas>
+    </div>
+    <div class="chart">
+        <canvas id="c3"></canvas>
+    </div>
+    <div class="c">
+        <canvas id="c"></canvas>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        const q1Results = [
+  { rating: 'Very Satisfied', count: 52 },
+  { rating: 'Satisfied', count: 38 },
+  { rating: 'Neutral', count: 21 },
+  { rating: 'Dissatisfied', count: 9 },
+  { rating: 'Very Dissatisfied', count: 5 }
+];//the values here are going to be the first dataset 
+
+const q2Results = [
+  { rating: 'Very Satisfied', count: 61 },
+  { rating: 'Satisfied', count: 35 },
+  { rating: 'Neutral', count: 18 },
+  { rating: 'Dissatisfied', count: 7 },
+  { rating: 'Very Dissatisfied', count: 3 }
+];//the values here are going to be the second dataset
+        const context = document.getElementById('myChart');
+        const labelsData = q1Results.map(r => r.rating)//holds each label for each x-axis slot
+        const firstResults = q1Results.map(r => r.count)//all of the data for the first set
+        const secondResults = q2Results.map(r => r.count)//all data for the second dataset
+
+        new Chart(context, {
+            type: 'bar',
+            data:{
+                labels: labelsData,
+                datasets:[
+                    {
+                        data: firstResults,
+                        label: 'First Values',
+                        backgroundColor: 'Red',
+                        backgroundColor:'green'
+                    },
+                    {
+                        data: secondResults,
+                        label: 'Second Values',
+                        backgroundColor: 'Blue'
+                    }
+                ]
+            },
+            options:{
+                responsive:true,
+                plugins:
+                {
+                    title:{
+                        display:true,
+                        text:"Customer Satisfaction: q1vsq2"
+                    }
+                }
+            }
+        });
+
+        //second chart now:
+        const ctx = document.getElementById('chartTwo');
+        const results = [
+  { channel: 'Email', count: 142 },
+  { channel: 'Social Media', count: 98 },
+  { channel: 'Word of Mouth', count: 76 },
+  { channel: 'Search Engine', count: 54 },
+  { channel: 'Other', count: 20 }
+];
+const secondLabels = results.map(r => r['channel']);
+const secondData = results.map(r => r['count']);
+
+new Chart(ctx, {
+    type: 'doughnut',
+    data:{
+        labels: secondLabels,
+        datasets:[{
+            data: secondData,
+            label: 'How you heard about us',
+            backgroundColor: [
+                'rgb(255, 99, 132)',
+                 'rgb(54, 162, 235)',
+                    'rgb(255, 205, 86)',
+                    'rgb(255,100,80)',
+                    'rgb(200,150,200)'
+            ]
+        }]
+    },
+    options:{
+        plugins:{
+            title:{
+                display: true,
+                text: 'How did you hear of us?',
+                font:{size:18},
+                align: 'start',
+                position:'top'
+            },
+            legend:{
+                position:'top'
+            }
+        }
+    }
+});
+///now time to do the line chart
+const ct = document.getElementById('line');
+const res = [
+  { month: 'Jan', avgScore: 3.8 },
+  { month: 'Feb', avgScore: 3.9 },
+  { month: 'Mar', avgScore: 4.1 },
+  { month: 'Apr', avgScore: 4.0 },
+  { month: 'May', avgScore: 4.3 },
+  { month: 'Jun', avgScore: 4.5 }
+];
+const l = res.map(r => r.month);
+const a = res.map(r => r.avgScore);
+new Chart(ct,{
+    type: 'line',
+    data:{
+        labels: l,
+        datasets:[
+            {
+                label: 'January through June data',
+                data: a,
+                borderColor: 'Green',
+                width:'10px',
+                tension:0.3
+            }
+        ]
+    },
+    options:{
+        plugins:{
+            title:{
+                display:true,
+                text: 'Data throughout the year',
+                font:{size:18},
+                position: 'top',
+                align:'center'
+            }
+        }
+    }
+});
+
+const cont = document.getElementById('c3');
+const re = [
+  { feature: 'Dark Mode', votes: 89 },
+  { feature: 'Mobile App', votes: 76 },
+  { feature: 'Export to PDF', votes: 54 },
+  { feature: 'Team Collaboration', votes: 41 },
+  { feature: 'API Access', votes: 23 },
+  { feature: 'Custom Themes', votes: 18 }
+];
+const ls = re.map(r => r.feature);
+const as = re.map(r => r.votes);
+new Chart(cont, {
+    type: 'bar',
+    data:{
+        labels: ls,
+        datasets:[
+            {
+                label: 'Feature to see next',
+                data:as,
+                backgroundColor:[
+                    'green','red','blue','orange','purple','pink'
+                ],
+                borderWidth: 10,
+                borderColor: 'black'
+            }
+        ]
+    },
+    options:{
+        indexAxis:'y'
+    }
+});
+const ctxx = document.getElementById('c');
+const r = [
+  { rating: 'Very Satisfied', free: 30, paid: 22 },
+  { rating: 'Satisfied', free: 25, paid: 13 },
+  { rating: 'Neutral', free: 14, paid: 7 },
+  { rating: 'Dissatisfied', free: 6, paid: 3 },
+  { rating: 'Very Dissatisfied', free: 4, paid: 1 }
+];//split this into 2 series, one for paid and one for free users and then same labels since asked teh same questions
+const labs = r.map(r => r.rating);
+const freeRes = r.map(r => r.free);
+const paidRes = r.map(r => r.paid);
+
+new Chart(ctxx, {
+    type: 'bar',
+    data:{
+        labels: labs,
+        datasets:[{
+            data:freeRes,
+            label:'Free User Data',
+            backgroundColor:'blue',
+            borderColor:'black',
+            borderWidth: 5
+        },{
+            data: paidRes,
+            label: "Paid User data",
+            backgroundColor: 'Red',
+            borderColor: 'black',
+            borderWidth: 5
+        }]
+    },
+    options:{scales:{
+        x:{
+            stacked:true
+        },
+        y:{
+            stacked:true,
+            beginAtZero: true
+        }
+    },
+        plugins:{
+            title:{
+                display: true,
+                position: 'top',
+                align: 'start',
+                text:'Free vs Paid user data',
+                font:{size:18}
+            }
+        }
+    }
+});
+
+
+
+    </script>
+
+</body>
+</html>
