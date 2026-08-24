@@ -1,0 +1,12 @@
+.todos{
+    text-align: left;
+}
+.todos li{
+    padding: 10px;
+    color: black;
+    font: 550 18px sans-serif, arial;
+}
+.todos li:hover{
+    color: lch(40.13% 2.98 19.7);
+    cursor: pointer;
+}

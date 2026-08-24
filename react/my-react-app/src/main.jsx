@@ -3,14 +3,15 @@ import './index.css'
 import Card from './Card.jsx'
 import Button from './Button/Button.jsx'
 import Student from './Student/Student.jsx'
-
+import WelcomeGreet from './Welcome/Welcome.jsx'
+import ToDo from './todo/ToDo.jsx'
+import {CountClicks} from './countClicks/Count.jsx'
+import { UpdateInput } from './Form.jsx'
+import {ColorPick} from './ColorPick/ColorPicker.jsx'
 function App(){
   return(
     <>
-    <Student name="Steve" age={20} isStudent={true}/>
-        <Student name="Joe" age={20} isStudent={true}/>
-    <Student name="Steve" age={20} isStudent={true}/>
-
+    <ColorPick/>
     </>
   )
 }
