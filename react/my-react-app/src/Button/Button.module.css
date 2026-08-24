@@ -1,0 +1,13 @@
+.button{
+    background-color: rgb(14, 101, 201);
+    color:white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    border:none;
+    cursor: pointer;
+    max-width: 200px;
+    max-height: 150px;
+    position: relative;
+    bottom: 30px;
+    margin: 0 auto;
+}
