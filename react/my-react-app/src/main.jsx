@@ -8,10 +8,12 @@ import ToDo from './todo/ToDo.jsx'
 import {CountClicks} from './countClicks/Count.jsx'
 import { UpdateInput } from './Form.jsx'
 import {ColorPick} from './ColorPick/ColorPicker.jsx'
+import {ToDos} from './ToDoApp/ToDo.jsx'
+import './ToDoApp/styles.css'
 function App(){
   return(
     <>
-    <ColorPick/>
+    <ToDos/>
     </>
   )
 }
